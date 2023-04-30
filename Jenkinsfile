@@ -22,7 +22,7 @@ node (label: 'TN_HtmlNginx_App'){
                         sh "cat deployment.yaml"
                         sh "git add ."
                         sh "git commit -m 'Done by Jenkins Job update manifest: ${env.BUILD_NUMBER}'"
-                        sh "git push --force https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/TN_HtmlNginxManifest_App.git HEAD:walmart-prod"
+                        sh "git push --force https://${GIT_USERNAME}:${GIT_PASSWORD}github.com/${GIT_USERNAME}/TN_HtmlNginxManifest_App.git HEAD:walmart-prod"
                         
                         
       }
