@@ -5,7 +5,7 @@ metadata:
   labels:
     app: devopsodia
 spec:
-  replicas: 4
+  replicas: 2
   selector:
     matchLabels:
       app: devopsodia
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: container-devopsodia
-        image: 192.168.56.120:9091/argocd-dev/devopsodia:3
+        image: 34.174.116.217:8085/repository/primary-argocd:5
         ports:
         - containerPort: 80
 ---
@@ -28,9 +28,9 @@ metadata:
     app: devopsodia
 spec:
   #type: LoadBalancer
-  #type: NodePort
+  type: NodePort
   ports:
   - port: 80
-  #nodePort: 30001
+  nodePort: 30005
   selector:
     app: devopsodia
