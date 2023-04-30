@@ -1,1 +1,1 @@
-# TN_HtmlNginxManifest_App
+# argocd-update-manifest
