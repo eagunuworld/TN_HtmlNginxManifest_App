@@ -18,11 +18,7 @@ spec:
       #   - name: registry-secret
       containers:
       - name: container-devopsodia
-<<<<<<< HEAD
         image: eagunuworld/primary-argocd:12
-=======
-        image: 34.174.116.217:8085/repository/primary-argocd:13
->>>>>>> 0ac213301b581d07cbf2a93406d0a65945b322b7
         ports:
         - containerPort: 80
 ---
