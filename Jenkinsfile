@@ -12,7 +12,7 @@ node (label: 'TN_HtmlNginx_App'){
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     //withCredentials([gitUsernamePassword(credentialsId: 'github', gitToolName: 'Default')]) {
    
-                    withCredentials([usernamePassword(credentialsId: 'GITHUBID', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+                    withCredentials([string(credentialsId: 'argocd-token-connection', variable: 'fixed')]) {
                         //def encodedPassword = URLEncoder.encode("$GIT_PASSWORD",'UTF-8')
                         sh "git config user.email eagunuworld@gmail.com"
                         sh "git config user.name eagunuworld"
@@ -22,7 +22,7 @@ node (label: 'TN_HtmlNginx_App'){
                         sh "cat deployment.yaml"
                         sh "git add ."
                         sh "git commit -m 'Done by Jenkins Job update manifest: ${env.BUILD_NUMBER}'"
-                        sh "git push --force https://$GIT_USERNAME:$GIT_PASSWORD@github.com/$GIT_USERNAME/TN_HtmlNginxManifest_App.git HEAD:walmart-prod"
+                        sh "git push --force https://$fixed@github.com/eagunuworld/TN_HtmlNginxManifest_App HEAD:walmart-prod"
                         
                         
       }
