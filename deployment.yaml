@@ -14,11 +14,11 @@ spec:
       labels:
         app: devopsodia
     spec:
-      imagePullSecrets:
-        - name: registry-secret
+      # imagePullSecrets:
+      #   - name: registry-secret
       containers:
       - name: container-devopsodia
-        image: 34.174.116.217:8085/repository/primary-argocd:11
+        image: eagunuworld/primary-argocd:12
         ports:
         - containerPort: 80
 ---
@@ -33,6 +33,6 @@ spec:
   type: NodePort
   ports:
   - port: 80
-  nodePort: 30005
+  nodePort: 30004
   selector:
     app: devopsodia
